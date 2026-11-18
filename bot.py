@@ -22,17 +22,16 @@ async def start(command_update: Update, context: ContextTypes.DEFAULT_TYPE):
 # معالجة الرسائل والنصوص الواردة
 async def handle_message(message_update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_text = message_update.message.text
-    # هنا يتم ربط المنطق الذكي أو معالجة الطلبات
     response_text = f"تم استلام طلبك يا أسطورة وجاري معالجته بنجاح: {user_text} ⚡"
     await message_update.message.reply_text(response_text)
 
 def main():
-    # استبدل YOUR_BOT_TOKEN بـ Token البوت الخاص بك من BotFather
-    token = os.environ.get("BOT_TOKEN", "YOUR_BOT_TOKEN")
+    # تم دمج توكن البوت الخاص بك هنا مباشرة
+    token = "8694566651:AAHmdGByWfuG3a-hNiGgZuNUA0g6pEAHx40"
     
     application = ApplicationBuilder().token(token).build()
 
-    # تسجيل الهاندلرز (Handlers)
+    # تسجيل الأوامر والهاندلرز
     application.add_handler(CommandHandler("start", start))
     application.add_handler(MessageHandler(filters.TEXT & (~filters.COMMAND), handle_message))
 
@@ -41,4 +40,4 @@ def main():
 
 if __name__ == '__main__':
     main()
-  
+    
